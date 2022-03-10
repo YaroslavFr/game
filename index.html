@@ -21,22 +21,22 @@
         function getCurrentRotation( elid ) {
         var st = window.getComputedStyle(elid, null);
         var tr = st.getPropertyValue("-webkit-transform") ||
-       st.getPropertyValue("-moz-transform") ||
-       st.getPropertyValue("-ms-transform") ||
-       st.getPropertyValue("-o-transform") ||
-       st.getPropertyValue("transform") ||
-       "fail...";
+        st.getPropertyValue("-moz-transform") ||
+        st.getPropertyValue("-ms-transform") ||
+        st.getPropertyValue("-o-transform") ||
+        st.getPropertyValue("transform") ||
+        "fail...";
 
   if( tr !== "none") {
     var values = tr.split('(')[1];
       values = values.split(')')[0];
       values = values.split(',');
-    var a = values[0];
-    var b = values[1];
-    var c = values[2];
-    var d = values[3];
+      var a = values[0];
+      var b = values[1];
+      var c = values[2];
+      var d = values[3];
 
-    var scale = Math.sqrt(a*a + b*b);
+      var scale = Math.sqrt(a*a + b*b);
 
     // arc sin, convert from radians to degrees, round
     /** /
@@ -44,10 +44,10 @@
     var angle = Math.round(Math.asin(sin) * (180/Math.PI));
     /*/
     var radians = Math.atan2(b, a);
-if ( radians < 0 ) {
-  radians += (2 * Math.PI);
-}
-var angle = Math.round( radians * (180/Math.PI));
+    if ( radians < 0 ) {
+        radians += (2 * Math.PI);
+    }
+    var angle = Math.round( radians * (180/Math.PI));
     /**/
 
   } else {
