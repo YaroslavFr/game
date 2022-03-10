@@ -1,0 +1,42 @@
+div{
+    width: 100px;
+    height: 100px;
+    transition: all .21s ease-out;
+}
+.person{
+    height: 250px;
+    position: relative;
+}
+.person__head{
+    background: url('img/helmet.png') no-repeat 50% 50%;
+    top: 7px;
+    position: absolute;
+    z-index: 30;
+}
+.person__body{
+    background: url('img/chest.png') no-repeat 50% 50%;
+    position: top;
+    position: absolute;
+    top: 80px;
+    z-index: 20;
+}
+.person__weapon{
+    background: url('img/sword.png') no-repeat 50% 50%;
+    position: absolute;
+    top: 50px;
+    right: -60px;
+    z-index: 25;
+}
+.person__leg-first{
+    background: url('img/boots.png') no-repeat 50% 50%;
+    position: absolute;
+    bottom: 0px;
+    background-size: 75%;
+}
+.person__leg-second{
+    background: url('img/boots.png') no-repeat 50% 50%;
+    position: absolute;
+    bottom: 0px;
+    left: 25px;
+    background-size: 75%;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div id="person" class="person">
+        <div class="person__head"></div>
+        <div class="person__body"></div>
+        <div class="person__weapon"></div>
+        <div id="legFirst" class="person__leg-first"></div>
+        <div id="legSecond" class="person__leg-second"></div>
+    </div>
+    <script>
+        function getCurrentRotation( elid ) {
+        var st = window.getComputedStyle(elid, null);
+        var tr = st.getPropertyValue("-webkit-transform") ||
+       st.getPropertyValue("-moz-transform") ||
+       st.getPropertyValue("-ms-transform") ||
+       st.getPropertyValue("-o-transform") ||
+       st.getPropertyValue("transform") ||
+       "fail...";
+
+  if( tr !== "none") {
+    var values = tr.split('(')[1];
+      values = values.split(')')[0];
+      values = values.split(',');
+    var a = values[0];
+    var b = values[1];
+    var c = values[2];
+    var d = values[3];
+
+    var scale = Math.sqrt(a*a + b*b);
+
+    // arc sin, convert from radians to degrees, round
+    /** /
+    var sin = b/scale;
+    var angle = Math.round(Math.asin(sin) * (180/Math.PI));
+    /*/
+    var radians = Math.atan2(b, a);
+if ( radians < 0 ) {
+  radians += (2 * Math.PI);
+}
+var angle = Math.round( radians * (180/Math.PI));
+    /**/
+
+  } else {
+    var angle = 0;
+  }
+
+  // works!
+//   console.log('Rotate: ' + angle + 'deg');
+  return angle;
+}
+
+        let legSecond = document.getElementById('legSecond');
+        var deg = 0;
+
+        function Counter() {
+            let count = 0;
+
+            this.value =function() {
+                return count;
+            }
+
+            this.toZero = function(){
+                return count = 0;
+            }
+
+            this.up = function() {
+                return ++count;
+            };
+
+            this.down = function() {
+               return --count;
+            };
+        }
+
+        function Status() {
+            let status = "front"; // Это изнчальный статус то что должно быть вначале. КАк и с счетчиком
+
+            this.curStatus = function() {
+                return status
+            }
+
+            this.front = function() {
+                return status = "front"
+            };
+
+            this.back = function() {
+               return status = "back";
+            };
+        }
+
+        let counter = new Counter();
+        let status = new Status();
+        let elementLeftValue = 25;
+        let elementBotValue = 0;
+        legSecond.onclick = function() {
+            
+            let adaptRotation = getCurrentRotation(legSecond);
+
+            if(counter.value() == 6){
+                counter.toZero();
+                if (status.curStatus() == "front"){
+                    status.back();
+                }else{
+                    status.front();
+                }
+            }
+
+            console.log(adaptRotation, counter.value(),counter.up(),status.curStatus());
+
+            if(status.curStatus() == "front"){
+                deg -= 15;
+                elementLeftValue += 3;
+                elementBotValue += 5;
+            }else if (status.curStatus() == "back") {
+                deg += 15;
+                elementLeftValue -= 3;
+                elementBotValue -= 5;
+            } 
+            
+            if(adaptRotation == 300){
+                counter.toZero();
+                status.back();
+            }
+
+            if(adaptRotation == 5){
+                counter.toZero();
+                status.front();
+            }
+            legSecond.style.left = elementLeftValue +"px";
+            legSecond.style.bottom = elementBotValue +"px";
+            legSecond.style.webkitTransform = 'rotate('+deg+'deg)'; 
+            legSecond.style.mozTransform    = 'rotate('+deg+'deg)'; 
+            legSecond.style.msTransform     = 'rotate('+deg+'deg)'; 
+            legSecond.style.oTransform      = 'rotate('+deg+'deg)'; 
+            legSecond.style.transform       = 'rotate('+deg+'deg)'; 
+
+        }
+    </script>
+</body>
+</html>
