@@ -18,8 +18,32 @@
         <div id="legSecond" class="person__leg-second"></div>
     </div>
     <script>
-        document.onkeydown  = checkKey;
-        function checkKey(e) {
+        document.onkeydown  = checkKeyDown;
+        document.onkeyup  = checkKeyUp;
+        let mainDuration = .51;
+        var tl = gsap.timeline();
+
+        function checkKeyUp(e){
+            e = e || window.event;
+            if (e.keyCode == '39') {
+                
+                gsap.to("#legFirst", {
+                    rotation: 1,
+                    x: 1,
+                    y: 1, 
+                    duration: mainDuration
+                })
+
+                gsap.to("#legSecond", {
+                    rotation: -1,
+                    x:-1,
+                    y:1, 
+                    duration: mainDuration
+                })
+            }
+        }
+
+        function checkKeyDown(e) {
 
             e = e || window.event;
 
@@ -33,23 +57,22 @@
             // left arrow
             }
             else if (e.keyCode == '39') {
-                gsap.from("#legSecond", {
-                    rotation: -110,
-                    x:30,
-                    y: -20, 
-                    duration: 1,
-                    onComplete: function(){
-                        gsap.to("#legSecond", {
-                            rotation: 0,
-                            x:0,
-                            y: 0, 
-                            duration: 1,
-                        })
-                    }
+                gsap.to("#legFirst", {
+                    rotation: 95,
+                    x: -53,
+                    y: -4, 
+                    duration: mainDuration
+                })
+
+                gsap.to("#legSecond", {
+                    rotation: -74,
+                    x:37,
+                    y: -24, 
+                    duration: mainDuration
                 })
             }
         }
-    
+    // идем вперед , если прибавлять + 20 до - 110, если по прежнему нажата клавиша возвращать
     </script>
 </body>
 </html>

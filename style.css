@@ -5,6 +5,7 @@ div{
 }
 .person{
     height: 250px;
+    left:250px;
     position: relative;
 }
 .person__head{
