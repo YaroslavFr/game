@@ -32,12 +32,12 @@ div{
     background: url('img/boots.png') no-repeat 50% 50%;
     position: absolute;
     bottom: 0px;
-    background-size: 75%;
+    background-size: 60%;
 }
 .person__leg-second{
     background: url('img/boots.png') no-repeat 50% 50%;
     position: absolute;
     bottom: 0px;
     left: 25px;
-    background-size: 75%;
+    background-size: 60%;
 }

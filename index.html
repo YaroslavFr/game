@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div id="person" class="person">
@@ -17,62 +18,5 @@
         <div id="legFirst" class="person__leg-first"></div>
         <div id="legSecond" class="person__leg-second"></div>
     </div>
-    <script>
-        document.onkeydown  = checkKeyDown;
-        document.onkeyup  = checkKeyUp;
-        let mainDuration = .51;
-        var tl = gsap.timeline();
-
-        function checkKeyUp(e){
-            e = e || window.event;
-            if (e.keyCode == '39') {
-                
-                gsap.to("#legFirst", {
-                    rotation: 1,
-                    x: 1,
-                    y: 1, 
-                    duration: mainDuration
-                })
-
-                gsap.to("#legSecond", {
-                    rotation: -1,
-                    x:-1,
-                    y:1, 
-                    duration: mainDuration
-                })
-            }
-        }
-
-        function checkKeyDown(e) {
-
-            e = e || window.event;
-
-            if (e.keyCode == '38') {
-                // up arrow
-            }
-            else if (e.keyCode == '40') {
-                // down arrow
-            }
-            else if (e.keyCode == '37') {
-            // left arrow
-            }
-            else if (e.keyCode == '39') {
-                gsap.to("#legFirst", {
-                    rotation: 95,
-                    x: -53,
-                    y: -4, 
-                    duration: mainDuration
-                })
-
-                gsap.to("#legSecond", {
-                    rotation: -74,
-                    x:37,
-                    y: -24, 
-                    duration: mainDuration
-                })
-            }
-        }
-    // идем вперед , если прибавлять + 20 до - 110, если по прежнему нажата клавиша возвращать
-    </script>
 </body>
 </html>
