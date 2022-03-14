@@ -1,7 +1,7 @@
 window.onload = function() {
 document.onkeydown  = checkKeyDown;
         document.onkeyup  = checkKeyUp;
-        let mainDuration = 15;
+        let mainDuration = 1;
         let tl = gsap.timeline();
         let easeValue = "sine";
         

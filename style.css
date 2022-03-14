@@ -35,7 +35,7 @@ body{
     background: url(img/chest.png) no-repeat 50% 50%;
     position: absolute;
     z-index: 20;
-    background-size: cover;
+    background-size: cover;/*ааа*/
 }
 .person__weapon{
     width: 38px;
