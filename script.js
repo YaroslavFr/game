@@ -1,6 +1,7 @@
+window.onload = function() {
 document.onkeydown  = checkKeyDown;
         document.onkeyup  = checkKeyUp;
-        let mainDuration = 1;
+        let mainDuration = 15;
         let tl = gsap.timeline();
         let easeValue = "sine";
         
@@ -8,16 +9,16 @@ document.onkeydown  = checkKeyDown;
             keyframes:{
             "50%" : {
                 rotation: 34,
-                    x: -17,
-                    y: -1, 
+                    x: -3,
+                    y: 5, 
                 },
             "75%" : {
-                y: 5
+                y: 0
             },
             "100%" : {
-                rotation: -22,
-                    x: 37,
-                    y: -8, 
+                rotation: -10,
+                    x: 13,
+                    y: 2, 
                 }
             },
             ease: easeValue,
@@ -28,16 +29,16 @@ document.onkeydown  = checkKeyDown;
             keyframes:{
             "50%" : {
                 rotation: -22,
-                    x: 17,
-                    y: -8, 
+                    x: 4,
+                    y: -2, 
                 },
             "75%" : {
                 y: 5
             },
             "100%" : {
                     rotation: 24,
-                    x: -42,
-                    y: -1, 
+                    x: -14,
+                    y: 3, 
                 }
             },
             ease: easeValue,
@@ -77,3 +78,4 @@ document.onkeydown  = checkKeyDown;
             }
         }
     // идем вперед , если прибавлять + 20 до - 110, если по прежнему нажата клавиша возвращать
+}
