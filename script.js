@@ -4,7 +4,11 @@ document.onkeydown  = checkKeyDown;
         let mainDuration = 1;
         let tl = gsap.timeline();
         let easeValue = "sine";
-        
+        let intViewportWidth = window.innerWidth;
+        let windowCenter = intViewportWidth *0.5;
+        let person = document.getElementById("person");
+        document.body.style.backgroundPositionX = -1+'px';
+
         let tweenLegFirst = gsap.to("#legFirst", {
             keyframes:{
             "50%" : {
@@ -50,7 +54,7 @@ document.onkeydown  = checkKeyDown;
 
         function checkKeyUp(e){
             e = e || window.event;
-            if (e.keyCode == '39') {
+            if (e.keyCode == '39' || e.keyCode == '68') {
                 tweenLegFirst.pause(0);
                 tweenLegSecond.pause(0);
             }
@@ -59,22 +63,42 @@ document.onkeydown  = checkKeyDown;
         function checkKeyDown(e) {
 
             e = e || window.event;
-
+            console.log(e.keyCode);
             if (e.keyCode == '38') {
                 // up arrow
             }
             else if (e.keyCode == '40') {
                 // down arrow
             }
-            else if (e.keyCode == '37') {
-            // left arrow
-            }
-            else if (e.keyCode == '39') {
-                
+            else if (e.keyCode == '37' || e.keyCode == '65') {  // left arrow 
+
                 tweenLegFirst.play();
                 tweenLegSecond.play();
 
-                
+                let tweenPerson = gsap.to(
+                    "#person", 
+                    {
+                        x: "-=60",
+                        ease: "none"
+                    }
+                )
+            }else if (e.keyCode == '39' || e.keyCode == '68') {  // right arrow 
+
+                tweenLegFirst.play();
+                tweenLegSecond.play();
+
+                let xpersonCoords = person.getBoundingClientRect().x;
+                if(xpersonCoords <= windowCenter-330){  
+                    let tweenPerson = gsap.to(
+                        "#person", {
+                            x: "+=60",
+                            ease: "none"
+                        }
+                    )
+                }else{
+                    let bodyBGcurPos = parseInt(document.body.style.backgroundPositionX);
+                    document.body.style.backgroundPositionX = bodyBGcurPos - 3+"px";
+                }
             }
         }
     // идем вперед , если прибавлять + 20 до - 110, если по прежнему нажата клавиша возвращать

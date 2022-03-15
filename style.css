@@ -1,11 +1,14 @@
 body{
-    background: url('img/main-bg.jpg');
-    background-size:contain;
-    background-position: bottom;
     width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    background: url(img/main-bg.jpg);
+    background-size: contain;
+    background-position-y: bottom;
+    background-position-x: 0%;
+    background-repeat: repeat-x;
+    background-color: #c1e8ef;
 }
 .person div {
     transition: all .21s ease-out;
