@@ -2,12 +2,16 @@ window.onload = function() {
 document.onkeydown  = checkKeyDown;
         document.onkeyup  = checkKeyUp;
         let mainDuration = 1;
-        let tl = gsap.timeline();
         let easeValue = "sine";
-        let intViewportWidth = window.innerWidth;
-        let windowCenter = intViewportWidth *0.5;
         let person = document.getElementById("person");
         document.body.style.backgroundPositionX = -1+'px';
+
+        let knight = {
+            health:100,
+            mana:100,
+            armor:2,
+            damage:15
+        }
 
         let tweenLegFirst = gsap.to("#legFirst", {
             keyframes:{
@@ -75,10 +79,10 @@ document.onkeydown  = checkKeyDown;
                 tweenLegFirst.play();
                 tweenLegSecond.play();
 
-                let tweenPerson = gsap.to(
+                gsap.to(
                     "#person", 
                     {
-                        x: "-=60",
+                        x: "-="+inputperson.value,
                         ease: "none"
                     }
                 )
@@ -86,18 +90,25 @@ document.onkeydown  = checkKeyDown;
 
                 tweenLegFirst.play();
                 tweenLegSecond.play();
-
                 let xpersonCoords = person.getBoundingClientRect().x;
-                if(xpersonCoords <= windowCenter-330){  
-                    let tweenPerson = gsap.to(
+                console.log("Координаты персонажа: ",xpersonCoords,"Порого бэкграунда: ",background_change_threshold.value,"Скорость смены фона: ",inputBGspeed.value);
+                if(xpersonCoords < background_change_threshold.value){  
+                    gsap.to(
                         "#person", {
-                            x: "+=60",
+                            x: "+="+inputperson.value,
                             ease: "none"
                         }
                     )
                 }else{
+                    gsap.to(
+                        "#person", {
+                            x: "+=1",
+                            ease: "sine"
+                        }
+                    )
                     let bodyBGcurPos = parseInt(document.body.style.backgroundPositionX);
-                    document.body.style.backgroundPositionX = bodyBGcurPos - 3+"px";
+                    document.body.style.backgroundPositionX = bodyBGcurPos - inputBGspeed.value+"px";
+                    
                 }
             }
         }

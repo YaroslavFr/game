@@ -10,6 +10,29 @@ body{
     background-repeat: repeat-x;
     background-color: #c1e8ef;
 }
+.hero-status--health{
+    width: 270px;
+    height: 30px;
+    position: absolute;
+    top: 85px;
+    left:20px;
+    border: 1px solid red;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hero-status--health-fill{
+    position: absolute;
+    background-color: #c10000;
+    height: 100%;
+    background: vendor-type-gradient( start / position , shape size, color 1, color2 [position] [, other colors / positions] );
+    background: -moz-linear-gradient( top left, #400303, #c10000, #ae0000 );
+    background: -webkit-linear-gradient( top left, #400303, #c10000, #ae0000 );
+    background: -o-linear-gradient( top left, #400303, #c10000, #ae0000 );
+    background: -khtml-linear-gradient( top left, #400303, #c10000, #ae0000 );
+    background: -ms-linear-gradient( top left, #400303, #c10000, #ae0000 );
+    background: linear-gradient( top left, #400303, #c10000, #ae0000 );
+    height: 100%;
+}
 .person div {
     transition: all .21s ease-out;
 }
