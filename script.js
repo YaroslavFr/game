@@ -91,7 +91,6 @@ document.onkeydown  = checkKeyDown;
                 tweenLegFirst.play();
                 tweenLegSecond.play();
                 let xpersonCoords = person.getBoundingClientRect().x;
-                console.log("Координаты персонажа: ",xpersonCoords,"Порого бэкграунда: ",background_change_threshold.value,"Скорость смены фона: ",inputBGspeed.value);
                 if(xpersonCoords < background_change_threshold.value){  
                     gsap.to(
                         "#person", {
