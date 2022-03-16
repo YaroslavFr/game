@@ -82,7 +82,7 @@ document.onkeydown  = checkKeyDown;
                 gsap.to(
                     "#person", 
                     {
-                        x: "-="+inputperson.value,
+                        x: "-="+55,
                         ease: "none"
                     }
                 )
@@ -91,11 +91,11 @@ document.onkeydown  = checkKeyDown;
                 tweenLegFirst.play();
                 tweenLegSecond.play();
                 let xpersonCoords = person.getBoundingClientRect().x;
-                console.log("Координаты персонажа: ",xpersonCoords,"Порого бэкграунда: ",background_change_threshold.value,"Скорость смены фона: ",inputBGspeed.value);
-                if(xpersonCoords < background_change_threshold.value){  
+
+                if(xpersonCoords < 444){  
                     gsap.to(
                         "#person", {
-                            x: "+="+inputperson.value,
+                            x: "+="+55,
                             ease: "none"
                         }
                     )
@@ -107,7 +107,7 @@ document.onkeydown  = checkKeyDown;
                         }
                     )
                     let bodyBGcurPos = parseInt(document.body.style.backgroundPositionX);
-                    document.body.style.backgroundPositionX = bodyBGcurPos - inputBGspeed.value+"px";
+                    document.body.style.backgroundPositionX = bodyBGcurPos - 5+"px";
                     
                 }
             }
