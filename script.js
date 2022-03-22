@@ -8,10 +8,13 @@ document.onkeydown  = checkKeyDown;
 
         let knight = {
             health:100,
-            mana:100,
+            mana:80,
             armor:2,
             damage:15
         }
+
+        document.getElementById("hero-status--max-health").innerHTML = knight.health;
+        document.getElementById("hero-status--max-mana").innerHTML = knight.mana;
 
         let tweenLegFirst = gsap.to("#legFirst", {
             keyframes:{

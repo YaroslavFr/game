@@ -20,8 +20,20 @@ body{
     border-radius: 12px;
     overflow: hidden;
 }
+.hero-status--mana{
+    width: 270px;
+    height: 30px;
+    position: absolute;
+    top: 75px;
+    left:20px;
+    border: 1px solid #00bcf5;
+    border-radius: 12px;
+    overflow: hidden;
+}
 .hero-status--health-fill{
     position: absolute;
+    display: flex;
+    align-items: center;
     background-color: #c10000;
     height: 100%;
     background: vendor-type-gradient( start / position , shape size, color 1, color2 [position] [, other colors / positions] );
@@ -31,7 +43,30 @@ body{
     background: -khtml-linear-gradient( top left, #400303, #c10000, #ae0000 );
     background: -ms-linear-gradient( top left, #400303, #c10000, #ae0000 );
     background: linear-gradient( top left, #400303, #c10000, #ae0000 );
+}
+.hero-status--mana-fill{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: #00bcf5;
     height: 100%;
+    background: vendor-type-gradient( start / position , shape size, color 1, color2 [position] [, other colors / positions] );
+    background: -moz-linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+    background: -webkit-linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+    background: -o-linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+    background: -khtml-linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+    background: -ms-linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+    background: linear-gradient( top left, #000976, #2a31ff, #3b77fd );
+}
+#hero-status--max-health{
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+}
+#hero-status--max-mana{
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
 }
 .person div {
     transition: all .21s ease-out;
